@@ -101,7 +101,7 @@ function App() {
     setConfirmOpen(false);
     if (!deleteRef) return;
     try {
-      await fetch(`http://localhost:5000/submissions/${deleteRef}`, { method: 'DELETE' });
+      await fetch(`https://solar-backend-vc9m.onrender.com/submissions/${deleteRef}`, { method: 'DELETE' });
       setSubmissions(submissions.filter(s => s.ref_number !== deleteRef));
       setAlert({ type: 'success', message: 'Submission deleted.' });
     } catch {
@@ -115,7 +115,7 @@ function App() {
     setLoading(true);
     setAlert({ type: '', message: '' });
     try {
-      const url = editRef ? `http://localhost:5000/submissions/${editRef}` : 'http://localhost:5000/send-quote';
+      const url = editRef ? `https://solar-backend-vc9m.onrender.com/submissions/${editRef}` : 'https://solar-backend-vc9m.onrender.com/send-quote';
       const method = editRef ? 'PUT' : 'POST';
       const res = await fetch(url, {
         method,
@@ -140,7 +140,7 @@ function App() {
   const fetchSubmissions = async () => {
     setFetching(true);
     try {
-      const res = await fetch('http://localhost:5000/submissions');
+      const res = await fetch('https://solar-backend-vc9m.onrender.com/submissions');
       const data = await res.json();
       setSubmissions(data);
     } catch (err) {
