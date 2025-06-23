@@ -3,3 +3,4 @@ flask-cors
 reportlab 
 gunicorn
 PyPDF2
+PyMuPDF>=1.23.7
